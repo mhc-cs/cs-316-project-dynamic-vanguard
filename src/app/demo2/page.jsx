@@ -1,6 +1,6 @@
 import React from "react";
 
-const Demo2 = () => {
+export default function Page() {
     return (
         <div class="bg-gradient-to-b from-green-950 to-stone-800">
             <div class="flex flex-col gap-10 py-10 bg-fixed bg-center bg-no-repeat bg-[url('https://www.pngrepo.com/png/923/180/leaf.png')] bg-blend-multiply h-max">
@@ -81,5 +81,3 @@ const Demo2 = () => {
         </div>
     )
 }
-
-export default Demo2

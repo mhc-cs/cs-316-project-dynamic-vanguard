@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
-const Demo = () => {
+export default function Page() {
     return (
-        <div class="grid grid-cols-9 bg-gradient-to-b from-green-950 to-stone-800 h-max">
+        <div class="grid grid-cols-9 bg-gradient-to-b from-black via-pink-950 to-yellow-500 h-max">
             <div />
-            <div class="col-span-7 text-white">
+            <div class="col-span-7 text-yellow-300">
 
             <h1 class="text-7xl text-center py-10">Company Name</h1>
 
@@ -24,7 +24,7 @@ const Demo = () => {
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                             </p>
                         </div>
-                        <div class="bg-emerald-700/50 text-xl p-5">
+                        <div class="bg-pink-700/50 text-xl p-5">
                             <p>
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                             </p>
@@ -50,7 +50,7 @@ const Demo = () => {
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                             </p>
                         </div>
-                        <div class="bg-emerald-700/50 text-xl p-5">
+                        <div class="bg-orange-700/50 text-xl p-5">
                             <p>
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                             </p>
@@ -74,7 +74,5 @@ const Demo = () => {
             </div>
             <div />
         </div>
-    )
+    );
 }
-
-export default Demo

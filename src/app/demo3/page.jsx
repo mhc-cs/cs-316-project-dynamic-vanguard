@@ -1,10 +1,10 @@
 import React from "react";
 
-const Demo3 = () => {
+export default function Page() {
     return (
-        <div class="bg-gray-300 h-max">
+        <div class="bg-gray-300 h-max text-black">
             <div class="p-5">
-                <h1 class="text-7xl text-center text-white">
+                <h1 class="text-7xl text-center">
                     Company Name
                 </h1>
             </div>
@@ -48,5 +48,3 @@ const Demo3 = () => {
         </div>
     )
 }
-
-export default Demo3
