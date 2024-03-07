@@ -11,14 +11,6 @@ export default function Navbar() {
             <div className="flex basis-2/3 space-x-4 justify-center align-middle text-white lg:text-2xl md:text-l">
                 <a href="/">Home</a>
                 <p>|</p>
-                <a href="/demo">Demo 1</a>
-                <p>|</p>
-                <a href="/demo2">Demo 2</a>
-                <p>|</p>
-                <a href="/demo3">Demo 3</a>
-                <p>|</p>
-                <a href="/about">About</a>
-                <p>|</p>
                 <a href="/contact">Contact</a>
             </div>
             <div className="flex basis-1/6 justify-end">
