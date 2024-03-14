@@ -2,25 +2,25 @@ import React from "react";
 
 export default function Page() {
     return (
-        <div class="bg-gray-300 h-max text-black">
-            <div class="p-5">
-                <h1 class="text-7xl text-center">
+        <div className="bg-gray-300 h-max text-black">
+            <div className="p-5">
+                <h1 className="text-7xl text-center">
                     Company Name
                 </h1>
             </div>
-            <div class="grid grid-cols-4">
-                <div class="col-span-2 h-auto">
-                    <div class="bg-slate-200 p-5">
+            <div className="grid grid-cols-4">
+                <div className="col-span-2 h-auto">
+                    <div className="bg-slate-200 p-5">
                         <p>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                         </p>
                     </div>
-                    <div class="bg-stone-200 p-5">
+                    <div className="bg-stone-200 p-5">
                         <p>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                         </p>
                     </div>
-                    <div class="bg-gray-200 p-5">
+                    <div className="bg-gray-200 p-5">
                         <p>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                         </p>
@@ -29,19 +29,19 @@ export default function Page() {
                         </p>
                     </div>
                 </div>
-                <div class="col-span-2 h-auto">
-                    <div class="bg-neutral-200 p-5">
+                <div className="col-span-2 h-auto">
+                    <div className="bg-neutral-200 p-5">
                         <p>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                         </p>
                     </div>
-                    <div class="bg-zinc-200 p-5">
+                    <div className="bg-zinc-200 p-5">
                         <p>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                         </p>
                     </div>
-                    <div class="flex justify-center align-middle">
-                        <img src="https://www.pngrepo.com/png/165748/180/leaves.png" class="object-contain"/>
+                    <div className="flex justify-center align-middle">
+                        <img src="https://www.pngrepo.com/png/165748/180/leaves.png" className="object-contain"/>
                     </div>
                 </div>
             </div>
