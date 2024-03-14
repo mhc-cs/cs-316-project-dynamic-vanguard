@@ -17,22 +17,17 @@ export default function Page() {
                             <section>
                                 <h1 className="text-7xl text-center">Contact Us!</h1>
                                 <div className="grid grid-cols-7">
-                                    <div className="flex flex-col col-span-1 gap-5 p-5 text-right align-middle items-end">
-                                        <h1>First Name</h1>
-                                        <h1>Last Name</h1>
-                                        <h1>Email</h1>
-                                        <h1>Message</h1>
-                                    </div>
+                                    <div className="col-span-1" />
                                     <div className="flex flex-col col-span-5 gap-5 p-5 rounded-md text-black">
                                         {/* Backend team - I haven't fleshed out the collection but the input values are 'value' if you want to try collecting data in submitContact() :) 
                                         also switch the above <form> container once backend is connected */}
-                                        <input className="form-input block w-full bg-white/90 focus:bg-white rounded-sm" id="first-name" type="text" defaultValue="" value="" />
-                                        <input className="form-input block w-full bg-white/90 focus:bg-white rounded-sm" id="last-name" type="text" defaultValue="" value="" />
-                                        <input className="form-input block w-full bg-white/90 focus:bg-white rounded-sm" id="email" type="text" defaultValue="" value="" />
-                                        <textarea className="form-textarea block w-full bg-white/90 focus:bg-white rounded-sm" id="message" rows="5" defaultValue="" value="" />
+                                        <input className="form-input block w-full bg-white/90 focus:bg-white rounded-md p-2" placeholder="First Name*" id="first-name" type="text" defaultValue="" />
+                                        <input className="form-input block w-full bg-white/90 focus:bg-white rounded-md p-2" placeholder="Last Name*" id="last-name" type="text" defaultValue="" />
+                                        <input className="form-input block w-full bg-white/90 focus:bg-white rounded-md p-2" placeholder="Email*" id="email" type="text" defaultValue="" />
+                                        <textarea className="form-textarea block w-full bg-white/90 focus:bg-white rounded-md p-2" placeholder="Write us a message!" id="message" rows="5" defaultValue="" />
                                         <label className="inline-flex items-center hover:cursor-pointer">
                                             <input type="checkbox" className="form-checkbox text-pink-950" id="mailing-list" />
-                                            <span className="ml-5">I would like to be added to the mailing list.</span>
+                                            <span className="ml-5 hover:text-white">I would like to be added to the mailing list.</span>
                                         </label>
                                         <button className="bg-gradient-to-b from-pink-700 to-pink-600 hover:from-yellow-500 hover:to-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mr-4 w-32" type="submit" value="submit">
                                             Submit
