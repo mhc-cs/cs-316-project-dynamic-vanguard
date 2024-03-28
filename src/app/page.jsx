@@ -1,5 +1,7 @@
 import React from "react";
 
+import Carousel from "./components/Carousel";
+
 export default function Page() {
     return (
         <div className="bg-gradient-to-b from-black via-pink-950 to-yellow-500 text-yellow-100">
@@ -43,13 +45,13 @@ export default function Page() {
                     </div>
                     <div className="col-span-1" />
                 </div>
-                {/* <div className="grid grid-cols-9">
+                <div className="grid grid-cols-9">
                     <div className="col-span-1" />
-                    <div className="col-span-7 flex justify-center bg-orange-800">
-                        <img src="https://www.pngrepo.com/png/165748/180/leaves.png" className="object-contain"/>
+                    <div className="col-span-7 overflow-hidden overflow-x-auto scrollbar-hide">
+                        <Carousel />
                     </div>
                     <div className="col-span-1" />
-                </div> */}
+                </div>
                 <div className="grid grid-cols-9">
                     <div className="col-span-1" />
                     <div className="col-span-3 flex flex-col bg-neutral-300/50 p-5 gap-5">
