@@ -1,5 +1,5 @@
 /**
- * CRUD (create, retrieve, update, delete) operations for contactForm collection in websiteData database
+ * CRUD (create, retrieve, update, delete) operations for contacts collection in websiteData database
  * created with help from MongoDB documentation and Mongoose Documentation 
  * @author Fevronia 
  */
