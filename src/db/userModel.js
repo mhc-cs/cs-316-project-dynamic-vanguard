@@ -12,8 +12,12 @@ const userSchema = new mongoose.Schema({
     name: String,
     userName: String,
     password: String, 
-    // dateJoined: Date,
+    joinedAt: {
+        type: Date,
+        default: Date.now
+    },
     email: String,
+    access: Boolean,
 });
 
 // Define Model (instances of models are documents)
@@ -26,14 +30,15 @@ const User = mongoose.model('user', userSchema);
  * @param {*} password
 //  * @param {*} dateJoined
  * @param {*} email 
+* @param  {*} access
  */
-export async function createUserDocument( name, userName, password, email) {
+export async function createUserDocument( name, userName, password, email, access) {
     // code for once hooked to UI
     // let year = getFullYear();
     // let month = getMonth();
     // let day = getDate();
     // let dateJoined = month + '.' + day + '.' + year;
-    const user = new User({name, userName, password, email});
+    const user = new User({name, userName, password, email, access});
     await user.save();
 }
 

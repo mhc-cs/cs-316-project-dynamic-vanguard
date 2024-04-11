@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
     name: String,
     type: String,
     blurb: String,
-    link: String, //change this when we know the type of product
+    link: String, 
     picture: Boolean //I think this will need to be front end? Maybe a tkinter upload type thing 
 });
 
@@ -34,6 +34,7 @@ export async function createProductDocument(name, type, blurb, link, picture) {
 
 /**
  * finds a specific document
+ * once products are in db we can use getStaticProps() to get them for pages
  * @param {*} name 
  * @returns found product
  */
