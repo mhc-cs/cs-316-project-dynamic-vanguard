@@ -26,6 +26,11 @@ const Contact = mongoose.model('contact', contactSchema);
  * @param {*} newsletter 
  */
 export async function createContactDocument(name, email, message, newsletter) {
+
+    if (newsletter) { //maybe use crud here? 
+        await addToNewsletter(email);
+    }
+
     const contact = new Contact({ name, email, message, newsletter });
     await contact.save();
 }

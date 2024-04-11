@@ -1,6 +1,7 @@
 import {createContactDocument,findContactByName,updateContactByName,deleteContactByName} from './contactModel.js';
 import {createUserDocument,findUserByName,updateUserByName,deleteUserByName} from './userModel.js';
 import {createProductDocument,findProductByName,updateProductByName,deleteProductByName} from './productModel.js';
+import { addToNewsletter,scheduleSession,findAllSubscribers,findAllEmails, findEmail, updateEmail,deleteEmail,unsubscribeFromNewsletter} from './newsletterModel.js';
 import mongoose from 'mongoose';
 
 /**
@@ -22,25 +23,16 @@ export async function connectToDatabase(uri) {
  */
 export async function executeContactFormSchema(){
     try{
-    
-        console.log('CREATE contact');
         await createContactDocument('Mary Lyon', 'vansi22f@mtholyoke.edu', 'just a lil test document', true);
-    
-        console.log('FIND contact');
-        console.log(await findContactByName('Mary Lyon'));
-    
-        console.log('UPDATE contact email');
+        await findContactByName('Mary Lyon');
         await updateContactByName('Mary Lyon', { email: 'nia13marie@gmail.com' });
-        console.log(await findContactByName('Mary Lyon'));
-    
-        console.log('DELETE contact');
-        // await deleteContactByName('Mary Lyon');
-        console.log(await findContactByName('Mary Lyon')); // Should return an empty array
+        await findContactByName('Mary Lyon');
+        await deleteContactByName('Mary Lyon');
+        await findContactByName('Mary Lyon');
     }
     catch(error){
         console.error('contact schema CRUD Methods Failed', error);
     }
-    
 }
 
 /**
@@ -48,24 +40,16 @@ export async function executeContactFormSchema(){
  */
 export async function executeUserSchema(){
     try{
-    
-        console.log('CREATE user');
-        await createUserDocument( 'Aya Naomi Yabra', 'yabra22n', 'password', 'yabra22n@mtholyoke.edu');
-        console.log('FIND user');
-        console.log(await findUserByName('Aya Naomi Yabra'));
-    
-        console.log('UPDATE user email');
+        await createUserDocument( 'Aya Naomi Yabra', 'yabra22n', 'password', 'yabra22n@mtholyoke.edu', true);
+        await findUserByName('Aya Naomi Yabra');
         await updateUserByName('Aya Naomi Yabra', { email: 'yabra22n@mtholyoke.edu' });
-        console.log(await findUserByName('Aya Naomi Yabra'));
-    
-        console.log('DELETE user');
-        // await deleteUserByName('Mary Lyon');
-        console.log(await findUserByName('Mary Lyon')); // Should return an empty array
+        await findUserByName('Aya Naomi Yabra');
+        await deleteUserByName('Mary Lyon');
+        await findUserByName('Mary Lyon');
     }
     catch(error){
         console.error('user schema CRUD Methods Failed', error);
     }
-    
 }
 
 /**
@@ -73,38 +57,49 @@ export async function executeUserSchema(){
  */
 export async function executeProductSchema(){
     try{
-    
-        console.log('CREATE product');
-        await createProductDocument( 'Herb Mix for Sleeping', 'Medicine', 'this will help you sleep', 'this could be a link', false);
-
-        console.log('FIND product');
-        console.log(await findProductByName('Herb Mix for Sleeping'));
-    
-        console.log('UPDATE product name');
+        await createProductDocument('Herb Mix for Sleeping', 'Medicine', 'this will help you sleep', 'this could be a link', false);
+        await findProductByName('Herb Mix for Sleeping');
         await updateProductByName('Herb Mix for Sleeping', { name: 'Sleepytime Herbal Mix' });
-        console.log(await findProductByName('Sleepytime Herbal Mix'));
-    
-        console.log('DELETE product');
-        // await deleteProductByName('Sleepytime Herbal Mix');
-        console.log(await findProductByName('Sleepytime Herbal Mix')); // Should return an empty array
+        await findProductByName('Sleepytime Herbal Mix');
+        await deleteProductByName('Sleepytime Herbal Mix');
     }
     catch(error){
         console.error('product schema CRUD Methods Failed', error);
     }
-    
 }
 
-
+/**
+ * test newsletter schema 
+ */
+export async function executeNewsletterSchema(){
+    try{
+        await addToNewsletter( 'nia13marie@gmail.com');
+        await findAllSubscribers();
+        await findAllEmails();
+        await updateEmail('nia13marie@gmail.com', { email: 'fevroniavansickle@gmail.com' });
+        await findEmail('fevroniavansickle@gmail.com');
+        await scheduleSession('fevroniavansickle@gmail.com');
+        await deleteEmail('fevroniavansickle@gmail.com');
+    }
+    catch(error){
+        console.error('newsletter schema CRUD Methods Failed', error);
+    }
+}
 
 /**
  * test db connection and all schemas
  */
 export async function executeAll(){
     const uri = process.env.DB_URI;
+   try{
     await connectToDatabase(uri);
-    // await executeContactFormSchema();
-    // await executeUserSchema()
-    // await executeProductSchema();
-
-
+    await executeContactFormSchema();
+    await executeUserSchema()
+    await executeProductSchema();
+    await executeNewsletterSchema();
+   }
+   catch(error){
+    console.error('CRUD Methods Failed', error);
+    process.exit();
+   }
 }
