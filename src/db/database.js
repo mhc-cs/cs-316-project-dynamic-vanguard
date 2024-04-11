@@ -2,9 +2,13 @@ import {createContactDocument,findContactByName,updateContactByName,deleteContac
 import {createUserDocument,findUserByName,updateUserByName,deleteUserByName} from './userModel.js';
 import {createProductDocument,findProductByName,updateProductByName,deleteProductByName} from './productModel.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {addToNewsletter, findAllEmails, findAllSubscribers, updateEmail, findEmail, scheduleSession, deleteEmail} from './newsletterModel.js';
 =======
 >>>>>>> 56de1dc (API routing)
+=======
+import {addToNewsletter, findAllEmails, findAllSubscribers, updateEmail, findEmail, scheduleSession, deleteEmail} from './newsletterModel.js';
+>>>>>>> 0d62d39 (API routing)
 import mongoose from 'mongoose';
 
 /**
