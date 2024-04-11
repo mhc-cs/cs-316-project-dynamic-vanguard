@@ -1,7 +1,6 @@
 import {createContactDocument,findContactByName,updateContactByName,deleteContactByName} from './contactModel.js';
 import {createUserDocument,findUserByName,updateUserByName,deleteUserByName} from './userModel.js';
 import {createProductDocument,findProductByName,updateProductByName,deleteProductByName} from './productModel.js';
-import { addToNewsletter,scheduleSession,findAllSubscribers,findAllEmails, findEmail, updateEmail,deleteEmail,unsubscribeFromNewsletter} from './newsletterModel.js';
 import mongoose from 'mongoose';
 
 /**
