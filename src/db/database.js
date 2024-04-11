@@ -3,12 +3,17 @@ import {createUserDocument,findUserByName,updateUserByName,deleteUserByName} fro
 import {createProductDocument,findProductByName,updateProductByName,deleteProductByName} from './productModel.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {addToNewsletter, findAllEmails, findAllSubscribers, updateEmail, findEmail, scheduleSession, deleteEmail} from './newsletterModel.js';
 =======
 >>>>>>> 56de1dc (API routing)
 =======
 import {addToNewsletter, findAllEmails, findAllSubscribers, updateEmail, findEmail, scheduleSession, deleteEmail} from './newsletterModel.js';
 >>>>>>> 0d62d39 (API routing)
+>>>>>>> d9fd5de (API routing)
+=======
+import {addToNewsletter, findAllEmails, findAllSubscribers, updateEmail, findEmail, scheduleSession, deleteEmail} from './newsletterModel.js';
+>>>>>>> 8337e87 (API routing)
 import mongoose from 'mongoose';
 
 /**
