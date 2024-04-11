@@ -12,7 +12,10 @@ const userSchema = new mongoose.Schema({
     name: String,
     userName: String,
     password: String, 
-    // dateJoined: Date,
+    joinedAt: {
+        type: Date,
+        default: Date.now
+    },
     email: String,
     access: Boolean,
 });
