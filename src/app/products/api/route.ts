@@ -1,58 +1,59 @@
 /**
-* Connects to MongoDB and handles POST, GET, PATCH, and DELETE for contact form
-* @author Carlin Rosen
-*/
+ * Connects to database and handles get for products
+ * @author Carlin Rosen
+ */
 
 import { NextResponse } from 'next/server';
-import { createContactDocument, findContactByName, updateContactByName, deleteContactByName } from '../../../db/contactModel' ;
 import { connectToDatabase } from '../../../db/database';
-import mongoose  from 'mongoose';
+import { createProductDocument, findProductByName, updateProductByName, deleteProductByName } from '../../../db/productModel';
+import mongoose from 'mongoose';
 
+export async function POST(req: Request){
+    const {name, type, blurb, link, picture} = await req.json();
 
-// Posts to the DB
-export async function POST(req: Request) {
-   const {firstName, lastName, email, message, newsletter} = await req.json();
-  
-   try {
-       const uri = process.env.DB_URI;
-       await connectToDatabase(uri);
+    try {
 
+        //Connect to db
+        const uri = process.env.DB_URI;
+        connectToDatabase(uri);
 
-       await createContactDocument(name, email, message, newsletter);
-       await contactSubmitted(name, email, message);
+        await createProductDocument(name, type, blurb, link, picture);
 
-       return NextResponse.json({
-           msg: ["Form submitted"],
-           success: true,
-       });
-   } catch (error) {
-       if (error instanceof mongoose.Error.ValidationError){
-           const errorList = [];
-           for (const e in error.errors) {
-               errorList.push(error.errors[e].message);
-           }
+        return NextResponse.json({
+            msg: ["Product created"],
+            success: true,
+        });
+    } catch (error) {
+    if (error instanceof mongoose.Error.ValidationError){
+        const errorList = [];
+        for (const e in error.errors) {
+            errorList.push(error.errors[e].message);
+        }
 
-           return NextResponse.json({
-               msg: errorList
-           });
-       } else {
-           return NextResponse.json({
-               msg: "Form submission failed"
-           });
-       }
-   }
+        return NextResponse.json({
+            msg: errorList
+        });
+    } else {
+        return NextResponse.json({
+            msg: "Product creation failed"
+        });
+    }
+}
 }
 
 export async function GET(req: Request){
-    const name = await req.json();
+    const {name} = await req.json();
     
-    try {
+    try{
+
+        // Connect to db
         const uri = process.env.DB_URI;
         await connectToDatabase(uri);
 
-        await findContactByName(name);
+        await findProductByName(name);
+
         return NextResponse.json({
-            msg: ["Contact found"],
+            msg: "Product found",
             success: true,
         });
     } catch (error) {
@@ -67,22 +68,25 @@ export async function GET(req: Request){
             });
         } else {
             return NextResponse.json({
-                msg: "Couldn't find contact"
+                msg: "Couldn't find product"
             });
         }
     }
 }
 
-export async function PATCH(req: Request){
+export async function PATCH(req: Request) {
     const {name, updatedFields} = await req.json();
 
-    try {
+    try{
+
+        // Connect to db
         const uri = process.env.DB_URI;
         await connectToDatabase(uri);
 
-        await updateContactByName(name, updatedFields);
+        await updateProductByName(name, updatedFields);
+
         return NextResponse.json({
-            msg: ["Contact updated"],
+            msg: ["Product added"],
             success: true,
         });
     } catch (error) {
@@ -97,7 +101,7 @@ export async function PATCH(req: Request){
             });
         } else {
             return NextResponse.json({
-                msg: "Couldn't update information"
+                msg: "Couldn't add product"
             });
         }
     }
@@ -107,12 +111,15 @@ export async function DELETE(req: Request){
     const name = await req.json();
 
     try {
+
+        // Connect to db
         const uri = process.env.DB_URI;
         await connectToDatabase(uri);
 
-        await deleteContactByName(name);
+        await deleteProductByName(name);
+
         return NextResponse.json({
-            msg: ["Contact deleted"],
+            msg: ["Product deleted"],
             success: true,
         });
     } catch (error) {
@@ -122,14 +129,14 @@ export async function DELETE(req: Request){
                 errorList.push(error.errors[e].message);
             }
  
+ 
             return NextResponse.json({
                 msg: errorList
             });
         } else {
             return NextResponse.json({
-                msg: "Couldn't delete contact"
+                msg: "Product deletion failed"
             });
         }
     }
 }
-
