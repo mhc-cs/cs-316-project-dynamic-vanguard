@@ -97,13 +97,39 @@ const newsletterSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+<<<<<<< HEAD
 >>>>>>> ba2962d (tinkered around with models)
+=======
+    email: String,
+    name: String,
+    message: String,
+    subscribed: {
+        type: Boolean,
+        default: true
+    },
+    subscribedAt: {
+        type: Date,
+        default: Date.now
+    }
+>>>>>>> 453dab9 (tinkered around with models)
 });
 
 
 // define model
 const Newsletter = mongoose.model('newsletter', newsletterSchema);
 
+
+/**
+* add an email to the newsletter and send welcome email
+* @param {*} email
+*/
+>>>>>>> 0d62d39 (API routing)
+export async function addToNewsletter(email) {
+   // Save the email to the newsletter list
+   const newsletterEntry = new Newsletter({ email});
+   await newsletterEntry.save();
+
+>>>>>>> 453dab9 (tinkered around with models)
 
 /**
 * add an email to the newsletter and send welcome email
@@ -145,6 +171,8 @@ export async function addToNewsletter(email) {
 
 >>>>>>> 0d62d39 (API routing)
 
+=======
+>>>>>>> 453dab9 (tinkered around with models)
    await transporter.sendMail(mailOptions);
 }
 
@@ -315,12 +343,50 @@ export async function scheduleSession(email, name, message) {
     };
     await transporter.sendMail(mailOptions);
 
+ * sends email for free session 
+ *  @param {*} email 
+ */
+export async function scheduleSession(email, name, message) {
+   
+    //send scheduling email to client
+    const mailOptions = {
+        from: 'vansi22f@mtholyoke.edu',
+        to: email,
+        subject: 'Welcome'+ name + '!',
+        text: 'Welcome Warrior! Schedule your free session'
+    };
+    await transporter.sendMail(mailOptions);
+    await scheduleSession(email, name, message);
 }
 
 /**
+<<<<<<< HEAD
 * get all subscribers in collection
 * @returns subscribers
 */
+=======
+ * notify Aya of request for free session 
+ *  @param {*} email 
+ */
+export async function scheduleSession(email, name, message) {
+   
+    //send email to Aya with client request info
+    const mailOptions = {
+        from: 'vansi22f@mtholyoke.edu',
+        to: 'yabra22n@mtholyoke.edu',
+        subject: name + 'has requested a free session!',
+        text: 'Hi Aya,\n' + name + 'has been sent an email to schedule their free session with you.\nTheir message:\n'+message
+    };
+    await transporter.sendMail(mailOptions);
+
+}
+
+
+/**
+ * get all subscribers in collection 
+ * @returns subscribers
+ */
+>>>>>>> 453dab9 (tinkered around with models)
 export async function findAllSubscribers() {
    return await Newsletter.find({ subscribed: true });
 }
