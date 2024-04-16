@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 
 
-
-
 export default function Page() {
    const submitContact = async (event) => {
        event.preventDefault();

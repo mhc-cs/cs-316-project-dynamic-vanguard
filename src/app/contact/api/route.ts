@@ -5,22 +5,22 @@
 
 
 import { NextResponse } from 'next/server';
-import { createContactDocument } from '../../../db/contactModel' ;
+import { createContactDocument,contactSubmitted } from '../../../db/contactModel' ;
 import { connectToDatabase } from '../../../db/database';
 import mongoose  from 'mongoose';
 
 
 // Posts to the DB
 export async function POST(req) {
-   const {firstName, lastName, email, message, newsletter} = await req.json();
+   const {name, email, message, newsletter} = await req.json();
   
    try {
        const uri = process.env.DB_URI;
        await connectToDatabase(uri);
 
 
-       await createContactDocument(firstName, lastName, email, message, newsletter);
-
+       await createContactDocument(name, email, message, newsletter);
+       await contactSubmitted(name, email, message);
 
        return NextResponse.json({
            msg: ["Form submitted"],
