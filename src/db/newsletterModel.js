@@ -9,8 +9,6 @@ import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
 
 
-
-
 //configure mail service
 const transporter = nodemailer.createTransport({
    service: 'gmail',
@@ -23,16 +21,17 @@ const transporter = nodemailer.createTransport({
 
 // define schema
 const newsletterSchema = new mongoose.Schema({
-   email: String,
-   name: String,
-   subscribed: {
-       type: Boolean,
-       default: true
-   },
-   subscribedAt: {
-       type: Date,
-       default: Date.now
-   }
+    email: String,
+    name: String,
+    message: String,
+    subscribed: {
+        type: Boolean,
+        default: true
+    },
+    subscribedAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 
@@ -50,34 +49,52 @@ export async function addToNewsletter(email) {
    await newsletterEntry.save();
 
 
-   // Send a welcome email to the new subscriber
-   const mailOptions = {
-       from: 'vansi22f@mtholyoke.edu',
-       to: email,
-       subject: 'Welcome!', //no name in order to reuse code
-       text: 'Welcome Warrior!\nThank you so much for becoming a part of our community!\nTo never miss our monthly newsletter, make sure to:\nSave this email address to your contacts so it doesn\'t accidentally go to spam.\nCheers,\nAya Wild\nYou received this email because you subscribed to our list. You can unsubscribe at any time.'
-   };
-
+    // Send a welcome email to the new subscriber
+    const mailOptions = {
+        from: 'vansi22f@mtholyoke.edu',
+        to: email,
+        subject: 'Welcome!',
+        text: 'Welcome Warrior!\nThank you so much for becoming a part of our community!\nTo never miss our monthly newsletter, make sure to:\nSave this email address to your contacts so it doesn\'t accidentally go to spam.\nCheers,\nAya Wild\nYou received this email because you subscribed to our list. You can unsubscribe at any time.'
+    };
 
    await transporter.sendMail(mailOptions);
+}
+
+/**
+ * sends email for free session 
+ *  @param {*} email 
+ */
+export async function scheduleSession(email, name, message) {
+   
+    //send scheduling email to client
+    const mailOptions = {
+        from: 'vansi22f@mtholyoke.edu',
+        to: email,
+        subject: 'Welcome'+ name + '!',
+        text: 'Welcome Warrior! Schedule your free session'
+    };
+    await transporter.sendMail(mailOptions);
+    await scheduleSession(email, name, message);
 }
 
 
 /**
-* sends email for free session
-*  @param {*} email
-*/
-export async function scheduleSession(email) {
-   const mailOptions = {
-       from: 'vansi22f@mtholyoke.edu',
-       to: email,
-       subject: 'Welcome!', //no name in order to reuse code
-       text: 'Welcome Warrior! Schedule now'
-   };
-
-
-   await transporter.sendMail(mailOptions);
+ * notify Aya of request for free session 
+ *  @param {*} email 
+ */
+export async function scheduleSession(email, name, message) {
+   
+    //send email to Aya with client request info
+    const mailOptions = {
+        from: 'vansi22f@mtholyoke.edu',
+        to: 'yabra22n@mtholyoke.edu',
+        subject: name + 'has requested a free session!',
+        text: 'Hi Aya,\n' + name + 'has been sent an email to schedule their free session with you.\nTheir message:\n'+message
+    };
+    await transporter.sendMail(mailOptions);
 }
+
+
 /**
 * get all subscribers in collection
 * @returns subscribers

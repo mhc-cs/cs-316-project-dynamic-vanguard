@@ -13,7 +13,11 @@ const productSchema = new mongoose.Schema({
     type: String,
     blurb: String,
     link: String, 
-    picture: Boolean //I think this will need to be front end? Maybe a tkinter upload type thing 
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    }
 });
 
 // Define Model (instances of models are documents)
