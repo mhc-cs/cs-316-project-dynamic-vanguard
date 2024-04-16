@@ -12,6 +12,14 @@ const transporter = nodemailer.createTransport({
         user: 'vansi22f@mtholyoke.edu',//ayawconsultant@gmail.com
         pass: 'maes zkyv hgwi zsom', //change this on Thurs 4/18
     }
+
+//configure mail service
+const transporter = nodemailer.createTransport({
+   service: 'gmail',
+   auth: {
+       user: 'vansi22f@mtholyoke.edu',
+       pass: 'maes zkyv hgwi zsom',
+   }
 });
 
 // define schema
@@ -29,8 +37,10 @@ const newsletterSchema = new mongoose.Schema({
     }
 });
 
+
 // define model
 const Newsletter = mongoose.model('newsletter', newsletterSchema);
+
 
 /**
 * add an email to the newsletter and send welcome email
@@ -46,10 +56,11 @@ export async function addToNewsletter(email, name) {
     const mailOptions = {
         from: 'vansi22f@mtholyoke.edu', //CHANGE
         to: email,
-        subject: 'Welcome'+ name + '!',
+        subject: 'Welcome!',
         text: 'Welcome Warrior!\nThank you so much for becoming a part of our community!\nTo never miss our monthly newsletter, make sure to:\nSave this email address to your contacts so it doesn\'t accidentally go to spam.\nCheers,\nAya Wild\nYou received this email because you subscribed to our list. You can unsubscribe at any time.'
-    }
-        await transporter.sendMail(mailOptions);
+    };
+
+   await transporter.sendMail(mailOptions);
 }
 
 /**
@@ -139,5 +150,5 @@ export async function unsubscribeFromNewsletter(email) {
    await Newsletter.updateMany({ email }, { $set: { subscribed: false } });
 }
 
-
 export default Newsletter;
+
