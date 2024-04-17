@@ -2,39 +2,62 @@
 
 import React from "react";
 
+import Services from "./Services";
+
 import { useState } from "react";
 
 export default function Navbar() {
-    const [open, setOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleNavbar = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const closeNavbar = () => {
+        setIsOpen(false);
+    };
+
     return (
-        <div className="bg-aya-yellow">
-            <div className="flex flex-col items-center h-20 w-60">
-                <div className="flex basis-1/6 justify-start">
-                    <a href="/">
-                        <svg className="w-10 h-10 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14"/>
-                        </svg>
-                    </a>
-                </div>
-                <div className="flex flex-col basis-2/3 space-x-4 justify-center align-middle text-black lg:text-2xl md:text-l gap-5 py-5">
-                    <div />
-                    <a href="/about">About</a>
-                    <a href="/services">Services</a>
-                    <a href="/store">Store</a>
-                    <a href="/blog">Blog</a>
-                    {/* <a href="/events-page">Events</a> */}
-                    <a href="/podcast">Podcast</a>
-                    <a href="/courses">Courses</a>
-                    <a href="/membership">Membership</a>
-                    <a href="/contact">Contact</a>
-                    <div />
-                </div>
-                <div className="flex basis-1/6 justify-end">
-                    <a className="rounded-full bg-white text-black py-5 px-2" href="#profile">
-                        Profile
-                    </a>
-                </div>
+        <div>
+            <div className="flex fixed top-0 left-0 m-5 bg-aya-yellow/80 h-12 w-12 justify-center align-middle rounded-sm">
+                <button onClick={toggleNavbar}>
+                    <svg className="w-10 h-10 text-gray-800 dark:text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14"/>
+                    </svg>
+                </button>
             </div>
+            {isOpen && (
+                <div className="flex">
+                    <div className="bg-aya-yellow fixed h-screen">
+                        {/* <div className="flex m-5 h-12 w-12 justify-center align-middle rounded-sm">
+                            <button onClick={closeNavbar}>
+                                <svg className="w-10 h-10 text-gray-800 dark:text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14"/>
+                                </svg>
+                            </button>
+                        </div> */}
+
+                        <div className="flex flex-col items-left h-auto w-60">
+                            <div className="flex flex-col basis-5/6 space-x-4 justify-center align-middle text-black lg:text-2xl md:text-l gap-5">
+                                <div />
+                                <a className="hover:text-yellow-700" href="/about">About</a>
+                                <Services />
+                                <a className="hover:text-yellow-700" href="/store">Store</a>
+                                <a className="hover:text-yellow-700" href="/blog">Blog</a>
+                                {/* <a className="hover:text-yellow-700" href="/events-page">Events</a> */}
+                                <a className="hover:text-yellow-700" href="/podcast">Podcast</a>
+                                <a className="hover:text-yellow-700" href="/courses">Courses</a>
+                                <a className="hover:text-yellow-700" href="/membership">Membership</a>
+                                <a className="hover:text-yellow-700" href="/contact">Contact</a>
+                                <a className="hover:text-yellow-700" href="/profile">My Profile</a>
+                                <div />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            )}
+            
         </div>
     )
 }

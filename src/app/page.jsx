@@ -2,6 +2,8 @@ import React from "react";
 
 import Carousel from "./components/Carousel";
 import Newsletter from "./components/Newsletter";
+import Image from "next/image";
+import bg2 from "./assets/images/bg2.jpg"
 
 export default function Page() {
     return (
@@ -15,7 +17,7 @@ export default function Page() {
                 </h2>
             </div>
             
-            <div className="flex flex-col bg-local bg-cover bg-no-repeat bg-[url('https://www.naturefineartphotos.com/wp-content/uploads/2014/09/aspen-trees-fall-foliage-7593.jpg')] py-52 gap-10">
+            <div className="flex flex-col bg-cover bg-local bg-no-repeat bg-center bg-bg2 py-52 gap-10">
                 <h2 className="text-5xl text-center">
                     Practical honest guidance through day-to-day Self Healing.
                 </h2>
