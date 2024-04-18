@@ -1,46 +1,42 @@
 /**
-* Connects to MongoDB and handles POST, GET, PATCH, and DELETE for contact form
+* Connects to MongoDB and handles POST, GET, PATCH, DELETE for accounts
 * @author Carlin Rosen
 */
 
 import { NextResponse } from 'next/server';
-import { createContactDocument, findContactByName, updateContactByName, deleteContactByName } from '../../../db/contactModel' ;
+import { createUserDocument, findUserByName, updateUserByName, deleteUserByName } from '../../../db/userModel' ;
 import { connectToDatabase } from '../../../db/database';
 import mongoose  from 'mongoose';
 
-
-// Posts to the DB
-export async function POST(req) {
-   const {name, email, message, newsletter} = await req.json();
-  
-   try {
-       const uri = process.env.DB_URI;
-       await connectToDatabase(uri);
-
-
-       await createContactDocument(name, email, message, newsletter);
-       await contactSubmitted(name, email, message);
-
-       return NextResponse.json({
-           msg: ["Form submitted"],
-           success: true,
-       });
-   } catch (error) {
-       if (error instanceof mongoose.Error.ValidationError){
-           const errorList = [];
-           for (const e in error.errors) {
-               errorList.push(error.errors[e].message);
-           }
-
-           return NextResponse.json({
-               msg: errorList
-           });
-       } else {
-           return NextResponse.json({
-               msg: "Form submission failed"
-           });
-       }
-   }
+export async function POST(req: Request) {
+    const {name, userName, password, email, access} = await req.json();
+          
+    try {
+        const uri = process.env.DB_URI;
+        await connectToDatabase(uri);
+        
+        await createUserDocument(name, userName, password, email, access);
+        
+        return NextResponse.json({
+            msg: ["Account created"],
+            success: true,
+        });
+    } catch (error) {
+        if (error instanceof mongoose.Error.ValidationError){
+            const errorList = [];
+            for (const e in error.errors) {
+                errorList.push(error.errors[e].message);
+            }
+        
+            return NextResponse.json({
+                msg: errorList
+            });
+        } else {
+            return NextResponse.json({
+                msg: "Account creation failed"
+            });
+        }
+    }
 }
 
 export async function GET(req: Request){
@@ -50,9 +46,10 @@ export async function GET(req: Request){
         const uri = process.env.DB_URI;
         await connectToDatabase(uri);
 
-        await findContactByName(name);
+        await findUserByName(name);
+
         return NextResponse.json({
-            msg: ["Contact found"],
+            msg: ["User found"],
             success: true,
         });
     } catch (error) {
@@ -67,7 +64,7 @@ export async function GET(req: Request){
             });
         } else {
             return NextResponse.json({
-                msg: "Couldn't find contact"
+                msg: "Couldn't find user"
             });
         }
     }
@@ -80,9 +77,10 @@ export async function PATCH(req: Request){
         const uri = process.env.DB_URI;
         await connectToDatabase(uri);
 
-        await updateContactByName(name, updatedFields);
+        await updateUserByName(name, updatedFields);
+
         return NextResponse.json({
-            msg: ["Contact updated"],
+            msg: ["Account updated"],
             success: true,
         });
     } catch (error) {
@@ -110,9 +108,10 @@ export async function DELETE(req: Request){
         const uri = process.env.DB_URI;
         await connectToDatabase(uri);
 
-        await deleteContactByName(name);
+        await deleteUserByName(name);
+
         return NextResponse.json({
-            msg: ["Contact deleted"],
+            msg: ["Account deleted"],
             success: true,
         });
     } catch (error) {
@@ -127,9 +126,12 @@ export async function DELETE(req: Request){
             });
         } else {
             return NextResponse.json({
-                msg: "Couldn't delete contact"
+                msg: "Couldn't delete account"
             });
         }
     }
 }
 
+
+   
+    
