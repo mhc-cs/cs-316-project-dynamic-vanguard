@@ -6,12 +6,13 @@
 
 
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 // Define Schema
 const userSchema = new mongoose.Schema({
     name: String,
     userName: String,
-    password: String, 
+    password: String,
     joinedAt: {
         type: Date,
         default: Date.now
@@ -19,6 +20,27 @@ const userSchema = new mongoose.Schema({
     email: String,
     access: Boolean,
 });
+
+userSchema.pre('save', function(next) {
+    const user = this;
+
+    if(!user.isModified('password')) return next();
+
+    try{
+        const salt = bcrypt.genSalt(10);
+        this.password = bcrypt.hash(this.password, salt);
+        return next();
+    } catch (error){
+        return next(error);
+    }
+});
+
+userSchema.methods.comparePassword = function(userPassword, cb) {
+    bcrypt.compare(userPassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
 
 // Define Model (instances of models are documents)
 const User = mongoose.model('user', userSchema);
