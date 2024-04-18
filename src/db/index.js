@@ -5,4 +5,3 @@ import { executeAll} from './database.js';
 
 config();
 await executeAll();
-
