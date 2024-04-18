@@ -1,7 +1,7 @@
-import {createContactDocument,findContactByName,updateContactByName,deleteContactByName} from './contactModel.js';
+import {contactSubmitted,createContactDocument,findContactByName,updateContactByName,deleteContactByName} from './contactModel.js';
 import {createUserDocument,findUserByName,updateUserByName,deleteUserByName} from './userModel.js';
 import {createProductDocument,findProductByName,updateProductByName,deleteProductByName} from './productModel.js';
-import {addToNewsletter, findAllEmails, findAllSubscribers, updateEmail, findEmail, scheduleSession, deleteEmail} from './newsletterModel.js';
+import {addToNewsletter, findAllEmails, findAllSubscribers, updateEmail, findEmail, scheduleSession, scheduleSessionNotice, deleteEmail} from './newsletterModel.js';
 import mongoose from 'mongoose';
 
 /**
@@ -23,12 +23,13 @@ export async function connectToDatabase(uri) {
  */
 export async function executeContactFormSchema(){
     try{
-        await createContactDocument('Mary Lyon', 'vansi22f@mtholyoke.edu', 'just a lil test document', true);
-        await findContactByName('Mary Lyon');
-        await updateContactByName('Mary Lyon', { email: 'nia13marie@gmail.com' });
-        await findContactByName('Mary Lyon');
-        await deleteContactByName('Mary Lyon');
-        await findContactByName('Mary Lyon');
+        await contactSubmitted('Mary Lyon', 'vansi22f@mtholyoke.edu', 'just a lil test document');
+        // await createContactDocument('Mary Lyon', 'vansi22f@mtholyoke.edu', 'just a lil test document', true);
+        // await findContactByName('Mary Lyon');
+        // await updateContactByName('Mary Lyon', { email: 'nia13marie@gmail.com' });
+        // await findContactByName('Mary Lyon');
+        // await deleteContactByName('Mary Lyon');
+        // await findContactByName('Mary Lyon');
     }
     catch(error){
         console.error('contact schema CRUD Methods Failed', error);
@@ -73,13 +74,13 @@ export async function executeProductSchema(){
  */
 export async function executeNewsletterSchema(){
     try{
-        await addToNewsletter( 'nia13marie@gmail.com');
-        await findAllSubscribers();
-        await findAllEmails();
-        await updateEmail('nia13marie@gmail.com', { email: 'fevroniavansickle@gmail.com' });
-        await findEmail('fevroniavansickle@gmail.com');
-        await scheduleSession('fevroniavansickle@gmail.com');
-        await deleteEmail('fevroniavansickle@gmail.com');
+        await addToNewsletter( 'nia13marie@gmail.com','Fevronia');
+        // await findAllSubscribers();
+        // await findAllEmails();
+        // await updateEmail('nia13marie@gmail.com', { email: 'fevroniavansickle@gmail.com' });
+        // await findEmail('fevroniavansickle@gmail.com');
+        await scheduleSession('fevroniavansickle@gmail.com', 'Fevronia', 'message here');
+        // await deleteEmail('fevroniavansickle@gmail.com');
     }
     catch(error){
         console.error('newsletter schema CRUD Methods Failed', error);
@@ -94,8 +95,8 @@ export async function executeAll(){
    try{
     await connectToDatabase(uri);
     await executeContactFormSchema();
-    await executeUserSchema()
-    await executeProductSchema();
+    // await executeUserSchema()
+    // await executeProductSchema();
     await executeNewsletterSchema();
    }
    catch(error){

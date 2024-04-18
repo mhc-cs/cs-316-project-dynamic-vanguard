@@ -10,16 +10,16 @@ import mongoose  from 'mongoose';
 
 
 // Posts to the DB
-export async function POST(req: Request) {
-   const {firstName, lastName, email, message, newsletter} = await req.json();
+export async function POST(req) {
+   const {name, email, message, newsletter} = await req.json();
   
    try {
        const uri = process.env.DB_URI;
        await connectToDatabase(uri);
 
 
-       await createContactDocument(firstName, lastName, email, message, newsletter);
-
+       await createContactDocument(name, email, message, newsletter);
+       await contactSubmitted(name, email, message);
 
        return NextResponse.json({
            msg: ["Form submitted"],

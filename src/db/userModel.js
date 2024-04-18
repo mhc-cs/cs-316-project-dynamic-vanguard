@@ -50,16 +50,10 @@ const User = mongoose.model('user', userSchema);
  * @param {*} name
  * @param {*} userName
  * @param {*} password
-//  * @param {*} dateJoined
  * @param {*} email 
 * @param  {*} access
  */
 export async function createUserDocument( name, userName, password, email, access) {
-    // code for once hooked to UI
-    // let year = getFullYear();
-    // let month = getMonth();
-    // let day = getDate();
-    // let dateJoined = month + '.' + day + '.' + year;
     const user = new User({name, userName, password, email, access});
     await user.save();
 }
