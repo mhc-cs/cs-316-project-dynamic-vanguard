@@ -9,7 +9,7 @@ export default function Page() {
     return (
         <div className="flex flex-col gap-10 bg-white h-max w-screen">
             <div className="flex flex-col gap-10 py-10 justify-center items-center text-black">
-                <h1 className="text-7xl">
+                <h1 className="text-7xl font-serif">
                     Aya Wild
                 </h1>
                 <h2 className="text-5xl">
@@ -17,11 +17,12 @@ export default function Page() {
                 </h2>
             </div>
             
-            <div className="flex flex-col bg-cover bg-local bg-no-repeat bg-center bg-bg2 py-52 gap-10">
-                <h2 className="text-5xl text-center">
+            <div className="bg-cover bg-local bg-no-repeat bg-center bg-bg2 py-52 gap-10 h-auto">
+                <div className="bg-pink-500/50 h-full grow"> TEST </div>
+                <h2 className="text-5xl text-center font-bold text-black">
                     Practical honest guidance through day-to-day Self Healing.
                 </h2>
-                <div className="col-span-7 overflow-hidden overflow-x-auto scrollbar-hide">
+                <div className="flex justify-center">
                     <Newsletter />
                 </div>
             </div>
