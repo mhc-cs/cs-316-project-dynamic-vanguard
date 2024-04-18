@@ -8,10 +8,12 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "bg1": "url('./assets/images/bg1.jpg')",
+        "bg2": "url('./assets/images/bg2.jpg')"
       },
+      colors: {
+        "aya-yellow": '#FFF08F',
+      }
     },
   },
   plugins: [],

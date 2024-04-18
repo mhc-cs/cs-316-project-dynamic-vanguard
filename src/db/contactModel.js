@@ -6,15 +6,17 @@
 
 import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
-import { addToNewsletter } from './newsletterModel'
+import { config } from 'dotenv';
+import { addToNewsletter } from './newsletterModel.js'
+config();
 
 
-//configure mail service 
+//configure mail service
 const transporter = nodemailer.createTransport({
    service: 'gmail',
    auth: {
-       user: 'vansi22f@mtholyoke.edu',//ayawconsultant@gmail.com
-       pass: 'maes zkyv hgwi zsom', //change this on Thurs 4/18
+       user: process.env.EMAIL_USER, 
+       pass: process.env.EMAIL_PASS, 
    }
 });
 
@@ -36,8 +38,8 @@ export async function contactSubmitted(name, email, message){
    
     // Send email to Aya about the contact
     const mailOptions = {
-      from: 'vansi22f@mtholyoke.edu', //CHANGE to Aya's email 
-      to: 'nia13marie@gmail.com', //change to Ayas email 
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, 
       subject: name + ' wants to contact you', 
       text: 'Their message: ' + message + '\nTheir email: ' + email
   }
