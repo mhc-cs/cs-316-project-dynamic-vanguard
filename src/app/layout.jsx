@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Modal from "./components/Modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,12 +12,20 @@ export const metadata = {
   description: "Aya's requested healing hub",
 };
 
-export default function RootLayout({ children }) {
+export async function generateStaticParams() {
+  return [{ lang: 'en-US' }, { lang: 'de' }]
+}
+
+export default function RootLayout({ children, params }) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body>
-        <Navbar />
-        {children}
+        {/* <Modal /> */}
+        <div className="flex">
+          <Navbar />
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );
