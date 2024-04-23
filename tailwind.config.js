@@ -12,7 +12,7 @@ module.exports = {
         "bg2": "url('./assets/images/bg2.jpg')"
       },
       colors: {
-        "aya-yellow": '#FFF08F',
+        "aya-yellow": '#edea9a',
       }
     },
   },

@@ -1,3 +1,8 @@
+/**
+ * Contact form, takes full name email and messages
+ * @author Nikki Bernstein
+ */
+
 import React from "react";
 
 export default function ContactForm() {
