@@ -1,3 +1,8 @@
+/**
+ * Login panel, takes username and password
+ * @author Nikki Bernstein
+ */
+
 import React from "react";
 
 export default function Login() {

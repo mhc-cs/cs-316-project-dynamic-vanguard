@@ -1,3 +1,8 @@
+/**
+ * Carousel component, needs fake items to populate
+ * @author Nikki Bernstein
+ */
+
 import React from "react";
 
 import Item from "./Item";

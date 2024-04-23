@@ -19,10 +19,10 @@ const Services = () => {
                 
                 {isOpen && (
                     <div className="flex flex-col text-sm gap-2 pt-5 pl-3">
-                        <a className="hover:text-yellow-700 bg-yellow-200" onClick={closeServices} href="/store/product">1:1 Integration Coaching</a>
-                        <a className="hover:text-yellow-700 bg-yellow-200" onClick={closeServices} href="/store/product">Herbal Healing Consultant</a>
-                        <a className="hover:text-yellow-700 bg-yellow-200" onClick={closeServices} href="/store/product">Rosen Bodywork Session</a>
-                        <a className="hover:text-yellow-700 bg-yellow-200" onClick={closeServices} href="/store/product">Group Integration Session</a>
+                        <a className="hover:text-yellow-700 bg-aya-yellow" onClick={closeServices} href="/store/product">1:1 Integration Coaching</a>
+                        <a className="hover:text-yellow-700 bg-aya-yellow" onClick={closeServices} href="/store/product">Herbal Healing Consultant</a>
+                        <a className="hover:text-yellow-700 bg-aya-yellow" onClick={closeServices} href="/store/product">Rosen Bodywork Session</a>
+                        <a className="hover:text-yellow-700 bg-aya-yellow" onClick={closeServices} href="/store/product">Group Integration Session</a>
                     </div>
                 )}
             </div>

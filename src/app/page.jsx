@@ -17,10 +17,15 @@ export default function Page() {
                 </h2>
             </div>
             
-            <div className="bg-cover bg-local bg-no-repeat bg-center bg-bg2 py-52 gap-10 h-auto">
-                <div className="bg-pink-500/50 h-full grow"> TEST </div>
-                <h2 className="text-5xl text-center font-bold text-black">
-                    Practical honest guidance through day-to-day Self Healing.
+            <div className="flex flex-col bg-cover bg-local bg-no-repeat bg-center bg-bg2 py-52 gap-10 h-auto">
+                
+                <h2 className="text-5xl font-bold text-black text-center pb-5">
+                    Healing starts when you stop judging yourself!!
+                </h2>
+                
+
+                <h2 className="text-5xl font-bold text-black text-center">
+                    Practical honest guidance through DAY-TO DAY healing.
                 </h2>
                 <div className="flex justify-center">
                     <Newsletter />
@@ -29,24 +34,25 @@ export default function Page() {
 
             <div className="grid grid-cols-9 text-black p-10 text-xl"> 
                 <div className="col-span-1"/>
-        
-                <div className="flex flex-col col-span-7 gap-10">
-
-                <h2 className="text-5xl text-center">
-                    Healing Starts when you stop judging yourself!
-                </h2>
-                    
-                    <div className="flex gap-10">
-                        <p>
-                            I can assist you in assimilating what your experiences with plant medicine, body work, dream work  and trauma reveal and guide you in integrating them into your daily life
-                        </p>
-                        <p>
-                            I can assist you in assimilating what your experiences with plant medicine, body work, dream work  and trauma reveal and guide you in integrating them into your daily life
-                        </p>
-                    </div>
+                <div className="flex flex-col gap-3 col-span-3 italic">
+                    <h2 className="text-2xl text-center font-bold">
+                        The healing power of Integrating.
+                    </h2>
+                    <p className="text-center italic">
+                        I can assist you in assimilating what your experiences with plant medicine, body work, dream work  and trauma reveal and guide you in integrating them into your daily life.
+                    </p>
                 </div>
 
-                <div className="col-span-1"/>                
+                <div className="col-span-1"/>
+
+                <div className="flex flex-col gap-3 col-span-3 italic">
+                    <h2 className="text-2xl text-center font-bold">
+                        Upgrade your Bullshit detector. 
+                    </h2>
+                    <p className="text-center">
+                        Learn practical ways to build a truthful sovereign lifestyle.
+                    </p>
+                </div>
                 
             </div>
            

@@ -8,9 +8,9 @@ export default function Newsletter() {
                 <a>Grab the monthly newsletter, unique offerings, events and a healthy dose of healing inspiration. I won't send fluff. Just the goods.</a>
             </div>
             <form>
-                <div className="flex gap-5">
-                    <input className="form-input block w-1/3 text-white bg-white/50 focus:bg-white px-5 rounded-sm" type="text" required autoComplete="off" autoCorrect="off" spellCheck="false" placeholder="Name" id="name" defaultValue="" />
-                    <input className="form-input block w-full text-white bg-white/50 focus:bg-white px-5 rounded-sm" type="text" required autoComplete="off" autoCorrect="off" spellCheck="false" placeholder="yourname@example.com" id="email" defaultValue="" requiredpattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                <div className="flex gap-5 text-sm">
+                    <input className="form-input block w-1/3 text-white bg-white/25 focus:bg-white px-5 rounded-sm" type="text" required autoComplete="off" autoCorrect="off" spellCheck="false" placeholder="Name" id="name" defaultValue="" />
+                    <input className="form-input block w-full text-white bg-white/25 focus:bg-white px-5 rounded-sm" type="text" required autoComplete="off" autoCorrect="off" spellCheck="false" placeholder="yourname@example.com" id="email" defaultValue="" requiredpattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
                     <button className="bg-yellow-500 hover:bg-yellow-400 rounded-sm w-32 p-5" type="submit" value="sumbit">Submit</button>
                 </div>
             </form>
