@@ -60,6 +60,7 @@ export default function Navbar() {
         //             <div className="flex flex-col items-left h-screen w-60">
         //                 <div className="flex flex-col space-x-4 justify-center text-black lg:text-2xl md:text-l gap-5">
         //                     <div />
+        //                     <a className="hover:text-yellow-700" href="/">Home</a>
         //                     <a className="hover:text-yellow-700" href="/about">About</a>
         //                     <Services />
         //                     <a className="hover:text-yellow-700" href="/store">Store</a>
