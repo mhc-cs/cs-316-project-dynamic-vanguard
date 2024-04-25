@@ -13,7 +13,10 @@ module.exports = {
       },
       colors: {
         "aya-yellow": '#edea9a',
-      }
+      },
+      fontFamily:{
+        'lobster': ['var(--font-lobster)']
+      },
     },
   },
   plugins: [],
