@@ -4,7 +4,7 @@
 */
 
 import { NextResponse } from 'next/server';
-import { createContactDocument, findContactByName, updateContactByName, deleteContactByName } from '../../../db/contactModel' ;
+import { createContactDocument, findContactByName, updateContactByName, deleteContactByName, contactSubmitted } from '../../../db/contactModel' ;
 import { connectToDatabase } from '../../../db/database';
 import mongoose  from 'mongoose';
 

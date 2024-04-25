@@ -1,3 +1,8 @@
+/**
+ * Footer, needs legal info (copyright), and any other information Aya would like to display
+ * @author Nikki Bernstein
+ */
+
 import React from "react";
 
 export default function Footer() {
