@@ -10,7 +10,7 @@ import mongoose  from 'mongoose';
 
 
 // Posts to the DB
-export async function POST(req) {
+export async function POST(req: Request) {
    const {name, email, message, newsletter} = await req.json();
   
    try {
