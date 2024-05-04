@@ -1,6 +1,6 @@
 /**
  * CRUD (create, retrieve, update, delete) operations for users collection in websiteData database
- * created with help from MongoDB documentation and Mongoose Documentation 
+ * created using MongoDB and Mongoose Documentation 
  * @author Fevronia 
  */
 
@@ -9,7 +9,7 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
 
-// Define Schema
+// define Schema
 const userSchema = new mongoose.Schema({
     name: String,
     userName: String,
@@ -43,7 +43,7 @@ userSchema.methods.comparePassword = function(userPassword, cb) {
     });
 };
 
-// Define Model (instances of models are documents)
+// define Model (instances of models are documents)
 const User = mongoose.model('user', userSchema);
 
 /**
