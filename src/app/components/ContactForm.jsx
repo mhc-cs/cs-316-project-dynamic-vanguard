@@ -1,12 +1,22 @@
-import React from "react";
+/**
+ * Contact form, takes full name email and messages
+ * @author Nikki Bernstein
+ */
+
+"use client"
+import React, { useState } from "react";
 
 export default function ContactForm() {
-    function handleSubmit(event) {
-        console.log("Form submitted")
+    
+    const [isSubmitted, setisSubmitted] = useState(false)
+
+    const handleSubmit = () => {
+        setisSubmitted(true)
     }
+
     return (
-        <div className="grow rounded-md bg-white/50 items-center p-5">
-            <form id="contact" className="flex flex-col gap-5 group" noValidate onSubmit={handleSubmit()}>
+        <div className="grow rounded-md bg-white/75 items-center p-5 text-black font-bold">
+            <form id="contact" className="flex flex-col gap-5 group" noValidate onSubmit={handleSubmit}>
             {/* Add db method: */}
             {/* <form id="contact" className="flex flex-col gap-5" onSubmit={submitContact()} method="POST"> */}
                 <section>
@@ -34,6 +44,11 @@ export default function ContactForm() {
                     </div>
                 </section>
             </form>
+            {isSubmitted && (
+                <div>
+                    Thank you for your message!
+                </div>
+            )}
         </div>
     );
 }
