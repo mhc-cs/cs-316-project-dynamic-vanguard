@@ -10,14 +10,15 @@ import mongoose from 'mongoose';
 
 
 export async function POST(req: Request){
+
     const {email, name, message} = await req.json();
 
     try{
         const uri = process.env.DB_URI;
         await connectToDatabase(uri);
-
         await addToNewsletter(email, name);
         await scheduleSession(email, name, message);
+
 
         return NextResponse.json({
             msg: ["Added to newsletter"],
