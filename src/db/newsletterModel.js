@@ -1,5 +1,7 @@
 /**
  * CRUD (create, retrieve, update, delete) operations for newsletter collection in websiteData database
+ * created using MongoDB,Mongoose, and Nodemailer documentation
+ * @author Fevronia 
  */
 
 import mongoose from 'mongoose';

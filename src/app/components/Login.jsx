@@ -7,11 +7,11 @@ import React from "react";
 
 export default function Login() {
     return (
-        <div className="flex flex-col bg-white/75 rounded-md w-1/2 h-auto items-center align-middle justify-center p-10 gap-5">
+        <div className="flex flex-col bg-white/75 rounded-md w-full h-full items-center align-middle justify-center p-10 gap-5 text-black font-bold">
 
             <h1 className="text-5xl text-center font-bold">User Login</h1>
 
-            <div className="w-full">
+            <div className="w-1/2">
 
                 <form id="user-auth" className="flex flex-col gap-2">
                     <label className="text-2xl">Username</label>

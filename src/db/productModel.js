@@ -1,6 +1,6 @@
 /**
  * CRUD (create, retrieve, update, delete) operations for products collection in websiteData database
- * created with help from MongoDB documentation and Mongoose Documentation 
+ * created using MongoDB and Mongoose Documentation 
  * @author Fevronia 
  */
 

@@ -5,8 +5,9 @@
 "use client";
 import React, { useState } from "react";
 
-
 export default function ContactForm() {
+    const [isSubmitted, setisSubmitted] = useState(false)
+  
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -25,7 +26,7 @@ export default function ContactForm() {
             throw new Error('Failed to fetch data')
         }
 
-        console.log("Form submitted")
+        setisSubmitted(true)
     }
 
     const [name, setName] = useState("");
@@ -34,7 +35,7 @@ export default function ContactForm() {
     const [newsletter, setNewsletter] = useState(false);
 
     return (
-        <div className="grow rounded-md bg-white/50 items-center p-5">
+        <div className="grow rounded-md bg-white/75 items-center p-5 text-black font-bold">
             <form id="contact" className="flex flex-col gap-5 group" noValidate onSubmit={handleSubmit}>
             {/* Add db method: */}
             {/* <form id="contact" className="flex flex-col gap-5" onSubmit={submitContact()} method="POST"> */}
@@ -63,6 +64,11 @@ export default function ContactForm() {
                     </div>
                 </section>
             </form>
+            {isSubmitted && (
+                <div>
+                    Thank you for your message!
+                </div>
+            )}
         </div>
     );
 }
