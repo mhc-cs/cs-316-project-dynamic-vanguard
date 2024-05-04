@@ -1,7 +1,10 @@
-//written with help from: https://www.mongodb.com/languages/javascript/mongodb-and-npm-tutorial
+/**
+ * configures and runs database
+ * @Fevronia 
+ */
 
 import { config } from 'dotenv';
-import { executeContactFormCrud } from './contactFormCrud.js';
+import { executeAll } from './database.js';
 
 config();
 await executeAll();

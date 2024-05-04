@@ -10,8 +10,8 @@ import mongoose  from 'mongoose';
 
 
 // Posts to the DB
-export async function POST(req) {
-   const {name, email, message, newsletter} = await req.json();
+export async function POST(req: Request) {
+   const {firstName, lastName, email, message, newsletter} = await req.json();
   
    try {
        const uri = process.env.DB_URI;

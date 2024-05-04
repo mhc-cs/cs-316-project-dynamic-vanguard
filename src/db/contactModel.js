@@ -1,6 +1,6 @@
 /**
 * CRUD (create, retrieve, update, delete) operations for contacts collection in websiteData database
-* created with help from MongoDB documentation and Mongoose Documentation
+* created using MongoDB,Mongoose, and Nodemailer documentation
 * @author Fevronia
 */
 
@@ -20,7 +20,7 @@ const transporter = nodemailer.createTransport({
    }
 });
 
-// Define Schema
+// define Schema
 const contactSchema = new mongoose.Schema({
    name: String,
    email: String,
@@ -46,7 +46,7 @@ export async function contactSubmitted(name, email, message){
       await transporter.sendMail(mailOptions);
 }
 
-// Define Model
+// define Model
 export const Contact = mongoose.model('contact', contactSchema);
 
 /**
